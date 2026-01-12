@@ -1,4 +1,5 @@
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 
@@ -35,7 +36,18 @@ class RegisterPage:
         self.driver.find_element(*self.password_input).send_keys(password)
         self.driver.find_element(*self.confirm_password_input).send_keys(password)
 
+
     def click_register(self):
         self.driver.find_element(*self.register_button).click()
 
+    error_message = (By.CSS_SELECTOR, ".result")
 
+    def get_error_message(self):
+        wait = WebDriverWait(self.driver, 10)
+
+        wait.until(EC.visibility_of_element_located(self.error_message))
+
+        wait.until(lambda d: d.find_element(*self.error_message).text.strip() != "")
+
+        # 3. Retornar el texto ahora que estamos seguros que existe
+        return self.driver.find_element(*self.error_message).text
