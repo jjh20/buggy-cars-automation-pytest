@@ -7,7 +7,7 @@ def test_register_invalid_password(driver):
    register_page = RegisterPage(driver)
    
    register_page.open()
-   register_page.fill_username("Cuco08")
+   register_page.fill_username("Cuco09")
    register_page.fill_first_name("Cuco")
    register_page.fill_last_name("Castillo")
    register_page.fill_password('Cuco2020')

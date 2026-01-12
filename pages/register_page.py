@@ -43,7 +43,7 @@ class RegisterPage:
     error_message = (By.CSS_SELECTOR, ".result")
 
     def get_error_message(self):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 9)
 
         wait.until(EC.visibility_of_element_located(self.error_message))
 
