@@ -49,5 +49,5 @@ class RegisterPage:
 
         wait.until(lambda d: d.find_element(*self.error_message).text.strip() != "")
 
-        # 3. Retornar el texto ahora que estamos seguros que existe
+        
         return self.driver.find_element(*self.error_message).text
